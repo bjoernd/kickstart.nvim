@@ -25,7 +25,7 @@ return {
   ),
 
   lsnip(
-    { trig = "foo" },
-    { t("Another snippet.") }
+    { trig = "signed" },
+    { t("Signed-off-by: Bjoern Doebel <bjoern.doebel@gmail.com>") }
   ),
 }

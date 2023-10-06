@@ -220,6 +220,16 @@ require('lazy').setup({
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
   -- { import = 'custom.plugins' },
+  'saadparwaiz1/cmp_luasnip',
+  -- https://github.com/L3MON4D3/LuaSnip
+  -- https://sbulav.github.io/vim/neovim-setting-up-luasnip/
+  {
+    "L3MON4D3/LuaSnip",
+    -- follow latest release.
+    version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+    -- install jsregexp (optional!).
+    build = "make install_jsregexp"
+  }
 }, {})
 
 -- [[ Setting options ]]
@@ -504,6 +514,7 @@ mason_lspconfig.setup_handlers {
 -- See `:help cmp`
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
+require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/luasnip/"})
 require('luasnip.loaders.from_vscode').lazy_load()
 luasnip.config.setup {}
 

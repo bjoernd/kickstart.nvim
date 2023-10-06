@@ -398,11 +398,22 @@ vim.defer_fn(function()
   }
 end, 0)
 
+local function toggle_hlsearch()
+  local hl_state = vim.o.hlsearch
+  if hl_state then
+    vim.cmd([[ :set nohlsearch ]])
+  else
+    vim.cmd([[ :set hlsearch ]])
+  end
+end
+
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+
+vim.keymap.set('n', '<F6>', function() toggle_hlsearch() end, { desc = 'Toggle hlsearch' })
 
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.

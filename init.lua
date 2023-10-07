@@ -143,15 +143,6 @@ require('lazy').setup({
   },
 
   {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'onedark'
-    end,
-  },
-
-  {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
@@ -229,8 +220,41 @@ require('lazy').setup({
     version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
     -- install jsregexp (optional!).
     build = "make install_jsregexp"
-  }
+  },
+
+  'zaldih/themery.nvim',
+  'folke/tokyonight.nvim',
+  'catppuccin/nvim',
+  'rebelot/kanagawa.nvim',
+  'EdenEast/nightfox.nvim',
+  { 'rose-pine/neovim', name = 'rose-pine' },
+  'navarasu/onedark.nvim',
+  'ellisonleao/gruvbox.nvim',
+  'nyoom-engineering/oxocarbon.nvim',
+  {
+    'uloco/bluloco.nvim',
+    dependencies = {'rktjmp/lush.nvim'},
+    name="bluloco",
+  },
+  {
+    "bluz71/vim-nightfly-colors",
+    name = "nightfly",
+  },
+  'neanias/everforest-nvim',
+  'AlexvZyl/nordic.nvim',
+  'maxmx03/solarized.nvim',
+  'mrjones2014/lighthaus.nvim',
+
 }, {})
+
+require("themery").setup({
+  themes = {'tokyonight', 'catppuccin', 'everforest', 'nightfox',
+            'rose-pine', 'onedark', 'gruvbox', 'oxocarbon', 'nightfly',
+            'bluloco', 'nordic', 'solarized', 'lighthaus'}, -- list of installed colorschemes
+  themeConfigFile = "~/.config/nvim/lua/theme.lua", -- file to persist theme
+  livePreview = true, -- Apply theme while browsing. Default to true.
+})
+require("lua.theme")
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
@@ -238,6 +262,7 @@ require('lazy').setup({
 
 -- Set highlight on search
 vim.o.hlsearch = true
+vim.opt.termguicolors = true
 
 -- Make line numbers default
 vim.wo.number = true

@@ -254,7 +254,7 @@ require("themery").setup({
   themeConfigFile = "~/.config/nvim/lua/theme.lua", -- file to persist theme
   livePreview = true, -- Apply theme while browsing. Default to true.
 })
-require("lua.theme")
+require("theme")
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
